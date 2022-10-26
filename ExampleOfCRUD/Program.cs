@@ -22,7 +22,7 @@ namespace ExampleOfCRUD
             //}
             sql_CRUD.CreateEngineers();
             sql_CRUD.UpdateEngineers();
-            sql_CRUD.DeleteEngineer();
+            sql_CRUD.DeleteEngineers();
         }
     }
 }

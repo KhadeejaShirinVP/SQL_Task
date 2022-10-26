@@ -13,7 +13,10 @@ namespace ExampleOfCRUD
 {
     internal class SqlCRUD
     {
+        //connecting sql db
         private SqlConnection sqlConnection = new SqlConnection("Data Source=.;Initial Catalog=ConnectionProject;Integrated Security=True");
+
+        //To get data from database using DataSet //Read
         public DataTable GetEngineers()
         {
             DataSet dataset = new DataSet();
@@ -69,6 +72,7 @@ namespace ExampleOfCRUD
             }
         }
 
+        //create
         public void CreateEngineers()
         {
             try
@@ -80,10 +84,7 @@ namespace ExampleOfCRUD
                 string engineerName = Console.ReadLine();
                 Console.WriteLine("\nenter Engineer age\n");
                 int age = Convert.ToInt32(Console.ReadLine());
-                //Console.WriteLine("\nenter departmentid\n");
-                //int departmentId = Convert.ToInt32(Console.ReadLine());
-                //Console.WriteLine("\nenter employee salaryid\n");
-                //int salaryid = Convert.ToInt32(Console.ReadLine());
+
 
                 sqlCommand.CommandText = "insert into Engineer values ('" + engineerName + "'," + age +")";
                 sqlCommand.ExecuteNonQuery();
@@ -126,8 +127,9 @@ namespace ExampleOfCRUD
                 sqlConnection.Close();
             }
         }
+
         //Delete
-        public void DeleteEngineer()
+        public void DeleteEngineers()
         {
             try
             {

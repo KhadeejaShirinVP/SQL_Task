@@ -8,7 +8,7 @@ Eng_Age int not null
 );
 
 select *from Engineers
---insert into Engineers(Eng_Name,Eng_Age) values ('Afsal',29)
+insert into Engineers(Eng_Name,Eng_Age) values ('Afsal',29)
 
 Update Engineers
 set Eng_Age=28

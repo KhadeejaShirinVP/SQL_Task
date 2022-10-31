@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,10 @@ namespace Sql_SP
             {
                 sqlConnection = new SqlConnection(connectionString);
                 sqlConnection.Open();
-                string insertQuery= "exec InsertData '" + EmpID + "'," + EmpName + "," + EmpAge + "," + SalaryID + "," + DepID + ";";
+                SqlCommand sqlCommand = sqlConnection.CreateCommand();
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+               
+                string insertQuery = "exec InsertData '" + EmpID + "'," + EmpName + "," + EmpAge + "," + SalaryID + "," + DepID + ";";
                 SqlCommand EXECCommand = new SqlCommand(insertQuery, sqlConnection);
                 EXECCommand.ExecuteNonQuery();
                 Console.WriteLine("Insert Successfully");
